@@ -7,6 +7,7 @@ class App {
     let div = document.createElement("div");
     div.textContent = "Oh my!";
     el.appendChild(div);
+    setTimeout(() => div.remove(), 2000);
   }
 }
 
