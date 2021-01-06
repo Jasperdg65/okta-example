@@ -3,11 +3,19 @@ class App {
     this.render();
   }
   render() {
+    let meals = [
+      { id: 1, title: "Breakfast Burrito", calories: 150 },
+      { id: 2, title: "Turkey Sandwich", calories: 600 },
+      { id: 3, title: "Roasted Chicken", calories: 725 }
+    ];
     let el = document.getElementById("app");
-    let div = document.createElement("div");
-    div.textContent = "Oh my!";
-    el.appendChild(div);
-    setTimeout(() => div.remove(), 2000);
+    let fragment = document.createDocumentFragment();
+    for (let meal of meals) {
+      let elMeal = document.createElement("div");
+      elMeal.innerHTML = `<span>${meal.title}</span>`;
+      fragment.appendChild(elMeal);
+    }
+    el.appendChild(fragment);
   }
 }
 
